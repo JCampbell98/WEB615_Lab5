@@ -24,8 +24,8 @@ for i in 1..50
   article.save
 end
 
-@articles.each do |article|
-  @users.each do |user|
+for article in @articles
+  for user in @users
     comment = Comment.new
     comment.message = Faker::Lorem.sentence
     comment.article = article
