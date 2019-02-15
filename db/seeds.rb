@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+User.delete_all
+Article.delete_all
+Comment.delete_all
 
 for i in 1..50
   first_name = Faker::Name.first_name
@@ -24,8 +27,8 @@ for i in 1..50
   article.save
 end
 
-@articles.each do |article|
-  @users.each do |user|
+for article in Articles
+  for user in Users
     comment = Comment.new
     comment.message = Faker::Lorem.sentence
     comment.article = article
