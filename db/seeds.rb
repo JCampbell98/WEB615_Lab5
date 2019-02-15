@@ -27,8 +27,8 @@ for i in 1..50
   article.save
 end
 
-for article in Articles
-  for user in Users
+for article in Article
+  for user in User
     comment = Comment.new
     comment.message = Faker::Lorem.sentence
     comment.article = article
