@@ -1,9 +1,8 @@
 class CreateArticles < ActiveRecord::Migration[5.1]
   def change
-    create_table :articles do |t|
-      t.text :title
-      t.text :content
-      t.belongs_to :user, foreign_key: true
+    create_table :users do |t|
+      t.string :name
+      t.string :email
 
       t.timestamps
     end
