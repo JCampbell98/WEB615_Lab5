@@ -18,17 +18,21 @@ for i in 1..50
   user = User.new
   user.name = name
   user.email = Faker::Internet.free_email(name)
-  user.save
 
-  article = Article.new
-  article.title = Faker::Book.title
-  article.content = Faker::Lorem.paragraph
-  article.user = user
-  article.save
+  if user.save
+    article = Article.new
+    article.title = Faker::Book.title
+    article.content = Faker::Lorem.paragraph
+    article.user = user
+    if article.save
+
+    end
+  end
+
 end
 
-for article in Article
-  for user in User
+for article in Article.all
+  for user in User.all
     comment = Comment.new
     comment.message = Faker::Lorem.sentence
     comment.article = article
