@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
-User.delete_all
-Article.delete_all
 Comment.delete_all
+Article.delete_all
+User.delete_all
 
 for i in 1..50
   first_name = Faker::Name.first_name
