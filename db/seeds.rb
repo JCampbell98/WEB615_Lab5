@@ -33,10 +33,12 @@ end
 
 for article in Article.all
   for user in User.all
-    comment = Comment.new
-    comment.message = Faker::Lorem.sentence
-    comment.article = article
-    comment.user = user
-    comment.save
+    for i in 1..10
+      comment = Comment.new
+      comment.message = Faker::Lorem.sentence
+      comment.article = article
+      comment.user = user
+      comment.save
+    end
   end
 end
